@@ -55,12 +55,10 @@ const usuariosPatch = (req = request, res = response) => {
 
 const usuariosDelete = async (req = request, res = response) => {
   const { id } = req.params;
-  const user = await User.findByIdAndUpdate(
-    id,
-    { state: false },
-    { returnDocument }
-  );
-  res.json(user);
+
+  const user = await User.findByIdAndUpdate(id, { state: false });
+
+  return res.json(user);
 };
 
 module.exports = {
